@@ -4,8 +4,17 @@ import Input from '../components/ui/Input'; // Assuming you have an Input compon
 import Textarea from '../components/ui/Textarea'; // Assuming you have a Textarea component
 import Button from '../components/ui/Button'; // Assuming you have a Button component
 
+// Define the type for the form data
+interface FormData {
+  name: string;
+  email: string;
+  phone: string;
+  message: string;
+}
+
 const Contact: React.FC = () => {
-  const [formData, setFormData] = useState({
+  // Set initial form state with typed data
+  const [formData, setFormData] = useState<FormData>({
     name: '',
     email: '',
     phone: '',
@@ -16,6 +25,7 @@ const Contact: React.FC = () => {
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState('');
 
+  // Handle input change with correct type
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
@@ -24,6 +34,7 @@ const Contact: React.FC = () => {
     }));
   };
 
+  // Handle form submission
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
@@ -37,7 +48,7 @@ const Contact: React.FC = () => {
       });
 
       setSuccess(true);
-      setFormData({ name: '', email: '', message: '' });
+      setFormData({ name: '', email: '', phone: '', message: '' }); // Reset form data
     } catch (err) {
       setError('There was an error submitting your message. Please try again.');
     } finally {
@@ -65,6 +76,15 @@ const Contact: React.FC = () => {
           name="email"
           placeholder="Your Email"
           value={formData.email}
+          onChange={handleChange}
+          required
+          className="w-full border border-gray-300 rounded-md p-2 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-200"
+        />
+        <Input
+          type="tel"
+          name="phone"
+          placeholder="Your Phone Number"
+          value={formData.phone}
           onChange={handleChange}
           required
           className="w-full border border-gray-300 rounded-md p-2 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-200"
