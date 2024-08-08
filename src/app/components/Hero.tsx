@@ -15,15 +15,15 @@ const Hero: React.FC = () => {
         </h1>
         {/* Subheading */}
         <p className="text-xl">
-          I'm Lavenia Atarah, a Full-Stack Developer passionate about creating modern web applications.
+          I&apos;m Lavenia Atarah, a Full-Stack Developer passionate about creating modern web applications.
         </p>
-        {/*phone Number*/}
+        {/* Phone Number */}
         <p className="text-lg mt-4">
-          call me at:<a href="tel:+254723690532" className="text-yellow-400 hover:underline">+254723690532</a>
+          Call me at: <a href="tel:+254723690532" className="text-yellow-400 hover:underline">+254723690532</a>
         </p>
         <p>
-            Email me at: <a href="mattlavyy@gmail.com" className="text-yellow-400 hover:underline">mattlavyy@gmail.com</a>
-          </p>
+          Email me at: <a href="mailto:mattlavyy@gmail.com" className="text-yellow-400 hover:underline">mattlavyy@gmail.com</a>
+        </p>
         {/* Call-to-Action Button */}
         <Link
           href="#contact"

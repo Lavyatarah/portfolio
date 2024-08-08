@@ -1,23 +1,23 @@
-// src/app/components/Projects.tsx
 import Link from 'next/link';
+import Image from 'next/image'; // Import the Image component from Next.js
 import { Card, CardContent } from './Card'; // Import the Card and CardContent components
 
 const projects = [
   {
-    title: 'Petty cash managment',
+    title: 'Petty Cash Management',
     description: 'A web application to manage petty cash transactions, track expenses, and generate reports.',
     imageSrc: '/placeholder.svg',
     link: 'https://github.com/Lavyatarah/pettycashmanagment',
   },
   {
-    title: 'pizza Restaurant',
-    description: 'The application is set up to manage pizzas and restaurants, with the ability to associate pizzas with restaurants through a many-to-many relationship',
+    title: 'Pizza Restaurant',
+    description: 'The application is set up to manage pizzas and restaurants, with the ability to associate pizzas with restaurants through a many-to-many relationship.',
     imageSrc: '/placeholder.svg',
     link: 'https://github.com/Lavyatarah/Flask-Code-Challenge---Pizza-Restaurants',
   },
   {
-    title: 'chicken farmers',
-    description: 'Express.js routes for handling user registration, login, and profile access for farmers. It uses bcrypt for password hashing and jwt for token-based authentication',
+    title: 'Chicken Farmers',
+    description: 'Express.js routes for handling user registration, login, and profile access for farmers. It uses bcrypt for password hashing and JWT for token-based authentication.',
     imageSrc: '/placeholder.svg',
     link: 'https://github.com/Lavyatarah/chicken-farmers',
   },
@@ -30,10 +30,14 @@ const Projects: React.FC = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {projects.map((project, index) => (
           <Card key={index} className="shadow-lg rounded-lg overflow-hidden">
-            <img
+            <Image
               src={project.imageSrc}
               alt={project.title}
-              className="w-full h-48 object-cover"
+              width={500}
+              height={300}
+              layout="responsive"
+              objectFit="cover"
+              className="w-full h-48"
             />
             <CardContent className="space-y-4">
               <h3 className="text-2xl font-bold">{project.title}</h3>
